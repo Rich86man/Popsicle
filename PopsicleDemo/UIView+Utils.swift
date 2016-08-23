@@ -10,11 +10,11 @@ extension UIView {
 	static func viewsByClassInNibNamed(_ name: String) -> [String: UIView] {
 		var viewsByClass = [String: UIView]()
 
-		let nibViews = Bundle.main().loadNibNamed(name, owner: self, options: nil)
+		let nibViews = Bundle.main.loadNibNamed(name, owner: self, options: nil)!
 
 		for view in nibViews {
 			if let v = view as? UIView {
-				viewsByClass[NSStringFromClass(v.dynamicType)] = v
+				viewsByClass[NSStringFromClass(type(of: v))] = v
 			}
 		}
 

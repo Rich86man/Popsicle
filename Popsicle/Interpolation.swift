@@ -46,7 +46,7 @@ public class Interpolation<I: Interpolable where I.ValueType == I> : Timeable, H
 		self.keyPath = keyPath.keyPathRepresentable.keyPath()
 
 		if !self.object.responds(to: NSSelectorFromString(self.keyPath)) {
-			fatalError("Please make sure the key path \"\(self.keyPath)\" you're referring to for an object of type <\(self.object.dynamicType)> is valid")
+			fatalError("Please make sure the key path \"\(self.keyPath)\" you're referring to for an object of type <\(type(of: self.object))> is valid")
 		}
 	}
 
